@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -30,13 +32,14 @@ public class AccountManagement {
 	private Environment env;
 
 	private static ApplicationContext context;
+	private static final Logger logger = LoggerFactory.getLogger(AccountManagement.class);
 
 	public static void main(String[] args) {
 
 //		context = new AnnotationConfigApplicationContext(AccountManagement.class);
 //		AccountManagement am = context.getBean(AccountManagement.class);
 //		am.init();
-
+		logger.info("inside main method");
 		context = new AnnotationConfigApplicationContext(ApplicationConfig.class);	   
 		AccountManagement accountManagement = context.getBean(AccountManagement.class);
 		accountManagement.init();
